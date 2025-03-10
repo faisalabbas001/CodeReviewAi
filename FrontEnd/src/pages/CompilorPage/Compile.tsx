@@ -45,7 +45,7 @@ const Compile = () => {
       setOutput(response.data.output || response.data.error);
     } catch (error) {
       console.error("Execution error:", error);
-      setOutput("Error executing code");
+      setOutput("Error  of executing code");
     } finally {
       setLoading(false);
     }
