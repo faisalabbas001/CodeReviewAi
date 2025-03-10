@@ -3,6 +3,8 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import {  Sun, Moon } from "lucide-react";
 import ExampleComponent  from  "../../components/ui/CompilorAnimation";
+import {  useNavigate } from "react-router-dom"; 
+import { FaHome } from "react-icons/fa";
 const Compile = () => {
   const [code, setCode] = useState("");
   const [language, setLanguage] = useState("javascript");
@@ -14,6 +16,8 @@ const Compile = () => {
   const toggleTheme = () => {
     setDarkMode((prev) => !prev);
   };
+
+  const navigate = useNavigate(); 
  
   const handleLanguageChange = (e: { target: { value: any; }; }) => {
     const selectedLanguage = e.target.value;
@@ -50,6 +54,13 @@ const Compile = () => {
   return (
     <div className={`min-h-screen flex flex-col items-center   p-6 transition-all duration-300 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
       <ExampleComponent />
+      <button
+              // href="/add-rental"
+              onClick={() => navigate("/")}
+              className="fixed bottom-20 right-20 p-4 z-50 bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 rounded-full shadow-lg hover:from-yellow-500 hover:to-amber-600 transition-all duration-500 transform hover:scale-110 focus:ring-2 focus:ring-yellow-300 animate-[bounce_2s_ease-in-out_infinite]"
+            >
+              <FaHome size={24}/>
+              </button>
       <motion.h2 
         className="text-2xl font-bold mb-4"
         initial={{ opacity: 0, y: -10 }}
